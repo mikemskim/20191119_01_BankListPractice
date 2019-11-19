@@ -32,5 +32,7 @@ class BankAdapter(context: Context, res:Int, list: ArrayList<BankData>) : ArrayA
 //        var bankLogoImg
 
         bankNameTxt.text = bankData.bankName
+
+        return row
     }
 }
