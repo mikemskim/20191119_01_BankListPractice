@@ -11,6 +11,7 @@ import org.json.JSONObject
 class MainActivity : BaseActivity() {
 
     var bankList = ArrayList<BankData>()
+    var bankAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +40,8 @@ class MainActivity : BaseActivity() {
                     val banks = data.getJSONArray("banks")
 
                     for (i in 0..banks.length()-1) {
-                        var bank = banks.get(i)
+                        var bank =  BankData.getBankFromJsonObject(banks.getJSONObject(i))
+                        bankList.add(bank)
                     }
 
                 } else {
