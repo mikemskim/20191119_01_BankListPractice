@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.tj.a20191119_01_banklistpractice.R
 import com.tj.a20191119_01_banklistpractice.datas.BankData
 
@@ -29,9 +31,10 @@ class BankAdapter(context: Context, res:Int, list: ArrayList<BankData>) : ArrayA
         var bankData = mList.get(position)
 
         var bankNameTxt = row.findViewById<TextView>(R.id.bankNameTxt)
-//        var bankLogoImg
+        var bankLogoImg = row.findViewById<ImageView>(R.id.bankLogoImg)
 
         bankNameTxt.text = bankData.bankName
+        Glide.with(mContext).load(bankData.bankLogoUrl).into(bankLogoImg)
 
         return row
     }
